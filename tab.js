@@ -114,5 +114,24 @@
 		}
 	}
 	
+	
+	Tab.init = function (tabs) {
+		var _this_ = this;
+		tabs.each( function() {
+			new _this_($(this));
+		})
+	}
+	
+	//组测成jq方法
+	$.fn.extend({
+		tab: function() {
+			this.each( function () {
+				new Tab($(this));
+			});
+			//为了实现链式结构
+			return this;
+		}
+	})
+	
 	window.Tab = Tab;
 })(jQuery)
